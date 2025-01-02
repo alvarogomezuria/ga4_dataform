@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-const SOURCE_PROJECT = "" /* specify a value here only in case your source data sits in a project other than the default defined in workflow_settings.yaml defaultDatabase variable. You would need to grant the Dataform service account BigQuery Data Viewer and BigQuery Job User access to the dataset. */
-const SOURCE_DATASET = "ga4_source"; /* the database containing the GA4 BigQuery exports */
-const REPORTING_TIME_ZONE = "America/Los_Angeles"; /* replace with your property reporting time zone, this will update the timestamp columns from UTC to your GA4 property timezone (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) */
+const SOURCE_PROJECT = "d-int-ga-prd" /* specify a value here only in case your source data sits in a project other than the default defined in workflow_settings.yaml defaultDatabase variable. You would need to grant the Dataform service account BigQuery Data Viewer and BigQuery Job User access to the dataset. */
+const SOURCE_DATASET = "analytics_331076953"; /* the database containing the GA4 BigQuery exports */
+const REPORTING_TIME_ZONE = "Europe/Berlin"; /* replace with your property reporting time zone, this will update the timestamp columns from UTC to your GA4 property timezone (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) */
 const STAGING_DATASET = "ga4_dataform_staging";
 const INTERMEDIATE_DATASET = "ga4_dataform_intermediate";
 const OUTPUT_DATASET = "ga4_dataform_output";
-const START_DATE = 20230820; /* data will be pulled starting this date */
+const START_DATE = 20240101; /* data will be pulled starting this date */
 const ALL_EVENTS_LOOKBACK_WINDOW = 7776000; /* number of lookback days in seconds when looking at last non-direct session source and non-acquisition conversion events, default is 90 days (86400 seconds in a day)*/
 const AQUISITION_EVENTS_LOOKBACK_WINDOW = 2592000; /* number of lookback days in seconds when looking at acquisition conversion events (first_open and first_visit), default is 30 days (86400 seconds in a day)*/
 
 /* Google Ads specific variables (optional) */
-const GADS_GET_DATA = false; /* set to true in case you would like to retrieve campaign information from Google Ads based on the GA4 gclid */
-const GADS_SOURCE_PROJECT = ""; /* your Google Ads data transfer project. you would need to grant the Dataform service account BigQuery Data Viewer and BigQuery Job User access to the dataset. */
-const GADS_SOURCE_DATASET = ""; /* your Google Ads data transfer source dataset */
-const GADS_CUSTOMER_ID = ""; /* your Google Ads customer id, excluding the dashes (-), example "1234567890" */
+const GADS_GET_DATA = true; /* set to true in case you would like to retrieve campaign information from Google Ads based on the GA4 gclid */
+const GADS_SOURCE_PROJECT = "d-int-ga-prd"; /* your Google Ads data transfer project. you would need to grant the Dataform service account BigQuery Data Viewer and BigQuery Job User access to the dataset. */
+const GADS_SOURCE_DATASET = "google_ads"; /* your Google Ads data transfer source dataset */
+const GADS_CUSTOMER_ID = "9735541494"; /* your Google Ads customer id, excluding the dashes (-), example "1234567890" */
 
 module.exports = {
     SOURCE_PROJECT,
